@@ -1,0 +1,142 @@
+import java.util.*;
+
+/*
+Matthew Whitecotton
+CMPS 12A/L Assignment 7
+*/
+
+	class Aliens 
+	{
+		static char a = '"';
+		//character used all over the place
+		
+		public static void Boilerplater()
+			//method to take care of SVG boilerplate
+		{
+			System.out.println("<?xml version=" + '"' + "1.0" + '"' + " standalone=" + '"' + "no" + '"' + "?>");
+			System.out.println("<!DOCTYPE svg PUBLIC " + '"' + "-//W3C//DTD SVG 1.1//EN" + '"');
+			System.out.println("  " + '"' + "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" + '"' + ">");
+			System.out.println("<svg width=" + '"' + "25cm" + '"' + " height=" + '"' + "25cm" + '"' + " viewBox=" + '"' + "0 0 3000 3000" + '"');
+			System.out.println("	" + "xmlns=" + '"' + "http://www.w3.org/2000/svg" + '"' + " version=" + '"' + "1.1" + '"' + ">");
+		}
+		
+		public static void Aliener(int i, int j, String color1, String color2, String color3, String color4)
+			//Method that creastes an alien!
+		{
+			int r = 50; //radius of circles
+			Circler(150 + 300 * i, 150 + 300 * j, 3*r, color1, 3);
+			//creating a circle
+			Recter(0 + 300 * i, 100 + 300 * j, 300, 100, color1, color2, 0);
+			//creatng a rect
+			Ellipser(150 + 300 * i, 150 + 300 * j, r, r + r/2, color3, color2, 2);
+			//creating an ellipse
+			Liner(150 + 300 * i, 150 + 75 + 300 * j, 150 + 300 * i, 150 - 75 + 300 * j, color4, 5); 
+			//creating a line
+			
+			
+		}
+		
+		public static void Ellipser(int cx, int cy, int rx, int ry, String color, String strokeColor, int stroke)
+			//method to create ellipses
+		{
+		System.out.println("	<ellipse cx=" + a + cx + a + " cy=" + a + cy + a + " rx=" + a + rx + a + " ry=" + a + ry + a + " style=" + a + "fill:" + color + ";stroke:" + strokeColor + ";stroke-width:" + stroke + a + "  />");
+		}
+		
+		public static void Circler(int cx, int cy, int r, String color, int stroke)
+			//method to create circles
+		{
+		System.out.println("	" + "<circle cx=" + '"' + cx + '"' + " cy=" + '"' + cy + '"' + " r=" + '"' + r + '"'+ " stroke=" + '"' + color + '"' + " stroke-width=" + '"' + stroke + '"' + "  />");	
+		}
+		
+		public static void Liner(int x1, int y1, int x2, int y2, String color, int stroke)
+			//method to create lines
+		{
+		System.out.println("	" + "<line x1=" + '"' + x1 + '"' + " y1=" + '"' + y1 + '"' + " x2=" + '"' + x2 + '"' + " y2=" + '"' + y2 + '"' + " stroke=" + '"' + color + '"' + " stroke-width=" + '"' + stroke + '"' + "  />" + '"');
+		}
+		
+		public static void Recter(int x, int y, int width, int height, String color, String strokeColor, int stroke)
+			//method to create rectangles
+		{
+		System.out.println("	<rect x=" + '"' + x + '"' + " y=" + '"' + y + '"' + " width=" + '"' + width + '"' + " height=" + '"' + height + '"' + " fill=" + '"' + color + '"' + " stroke=" + '"' + strokeColor + '"' + " stroke-width=" + '"' + stroke + '"' + "  />");
+		}
+		
+	public static void main(String [] args)
+	{
+		Boilerplater();
+		//creating the boilerplate		
+		
+		for(int i = 0; i < 8; i++)
+		{
+			for(int j = 0; j < 8; j++)
+			{
+				// 8 aliens by 8 aliens using a for loop
+				
+				
+				String color1 = "blue", color2 = "red", color3 = "green", color4 = "yellow";
+				
+				/*
+					I close to use if conditions based on I's value to create different color combinations.
+					*/
+				if(i == 1)
+				{
+					color1 = "red";
+					color2 = "blue";
+					color3 = "yellow";
+					color4 = "green";
+				}
+				if(i == 2)
+				{
+					color1 = "green";
+					color2 = "yellow";
+					color3 = "blue";
+					color4 = "red";
+				}
+				
+				if (i == 3)
+				{
+					color1 = "yellow";
+					color2 = "green";
+					color3 = "pink";
+					color4 = "green";
+				}
+				if(i == 4)
+				{
+				color1 = "red";
+				color2 = "blue";
+				color3 = "yellow";
+				color4 = "green";
+			}
+			
+			if(i == 5)
+			{
+				color1 = "green";
+				color2 = "blue";
+				color3 = "red";
+				color4 = "yellow";
+			}
+			
+			if(i == 6)
+			{
+				color1 = "blue";
+				color2 = "red";
+				color3 = "yellow";
+				color4 = "green";
+			}
+			
+			if(i == 7)
+			{
+				color1 = "pink";
+				color2 = "blue";
+				color3 = "red";
+				color4 = "yellow";
+			}
+
+				Aliener(i, j, color1, color2, color3, color4);
+				//creating the alien(s)
+				
+			}
+		}
+		
+		System.out.println("</svg>");	
+	}	
+}
